@@ -6,7 +6,7 @@
 }
 
 <h2>@ViewBag.Title.</h2>
-@if (Request.IsAuthenticated)
+@if (!Request.IsAuthenticated)
 {
 <div class="row">
     <div class="col-md-8">

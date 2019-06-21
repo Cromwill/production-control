@@ -4,4 +4,11 @@
 }
 
 <h2>Index</h2>
-
+@if(Request.IsAuthenticated)
+{
+    Html.Action("Index", "Manage");
+}
+else
+{
+    Html.Action("Login", "Account");
+}
