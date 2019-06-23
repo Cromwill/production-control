@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using WebApplication1.Models;
+using System.Collections.Generic;
 
 namespace WebApplication1.Controllers
 {
@@ -64,14 +65,24 @@ namespace WebApplication1.Controllers
                 : "";
 
             var userId = User.Identity.GetUserId();
+            List<Location> location = new List<Location>();
+            //using (var context = new ApplicationDbContext())
+            //{
+            //    foreach(var v in context.Locations)
+            //    {
+            //        location.Add(v);
+            //    }
+            //}
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
                 PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
                 Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
-            };
+                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
+                Email = await UserManager.GetEmailAsync(userId),
+                Locations = location
+                };
             return View(model);
         }
 

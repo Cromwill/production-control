@@ -18,7 +18,7 @@ namespace WebApplication1.Controllers
 
         public void Index()
         {
-            string url = Request.IsAuthenticated == true ? "Manage/Index/" : "Account/Login/";
+            string url = Request.IsAuthenticated ? "Manage/Index/" : "Account/Login/";
             Response.Redirect(url);
         }
     }

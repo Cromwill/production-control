@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ProductionControl.Models;
 
 namespace ProductionControl.Controllers
 {
@@ -10,7 +11,7 @@ namespace ProductionControl.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View(new User());
         }
 
         public ActionResult About()

@@ -6,8 +6,12 @@ using System.Web;
 
 namespace ProductionControl.Models
 {
-    public class UserContext
+    public class UserContext : DbContext
     {
+        public UserContext(string nameOrConnectionString = "DatabaseConnection") : base(nameOrConnectionString)
+        {
+        }
 
+        public DbSet<User> Users { get; set; }
     }
 }

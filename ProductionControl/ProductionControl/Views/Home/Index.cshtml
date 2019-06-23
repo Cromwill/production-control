@@ -1,6 +1,18 @@
-﻿@{
+﻿@model ProductionControl.Models.User
+@{
     ViewBag.Title = "Home Page";
 }
 
 
 <h2>Start Page</h2>
+@Html.LabelFor(x => x.FirstName)
+@Html.EditorFor(x => x.FirstName)
+<br />
+
+@Html.LabelFor(x => x.LastName)
+@Html.EditorFor(x => x.LastName)
+<br />
+
+@Html.LabelFor(x => x.Password)
+@Html.EditorFor(x => x.Password)
+<br />

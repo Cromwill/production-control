@@ -86,6 +86,7 @@ namespace WebApplication1
             }
             return manager;
         }
+
     }
 
     // Настройка диспетчера входа для приложения.
