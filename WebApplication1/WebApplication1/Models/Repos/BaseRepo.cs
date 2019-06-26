@@ -67,7 +67,7 @@ namespace WebApplication1.Models.Repos
             return SaveChangesAsync();
         }
 
-        internal int SaveChanges()
+         internal int SaveChanges()
         {
             try
             {
@@ -91,7 +91,7 @@ namespace WebApplication1.Models.Repos
             }
         }
 
-        internal async Task<int> SaveChangesAsync()
+         internal async Task<int> SaveChangesAsync()
         {
             try
             {
@@ -130,7 +130,6 @@ namespace WebApplication1.Models.Repos
 
             disposed = true;
         }
-
 
         public List<T> ExecuteQuery(string sql) 
             => Table.SqlQuery(sql).ToList();
