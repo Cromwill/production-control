@@ -24,7 +24,8 @@ namespace WebApplication1.Models.Repos
 
         public Task<int> DeleteAsync(int id, byte[] timeStamp)
         {
-            throw new NotImplementedException();
+            Context.Entry(new Location() { LocationId = id }).State = EntityState.Deleted;
+            return SaveChangesAsync();
         }
     }
 }

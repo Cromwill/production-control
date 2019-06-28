@@ -192,18 +192,29 @@
     <Compile Include="Migrations\201906231817402_Initial2.Designer.cs">
       <DependentUpon>201906231817402_Initial2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906261700517_Initial3.cs" />
+    <Compile Include="Migrations\201906261700517_Initial3.Designer.cs">
+      <DependentUpon>201906261700517_Initial3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906261711145_Intal4.cs" />
+    <Compile Include="Migrations\201906261711145_Intal4.Designer.cs">
+      <DependentUpon>201906261711145_Intal4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\AppDbInitializer.cs" />
+    <Compile Include="Models\EF\AppDbInitializer.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\EF\DataInitializer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\ProductContolEntities.cs" />
+    <Compile Include="Models\EF\ProductContolEntities.cs" />
     <Compile Include="Models\Repos\BaseRepo.cs" />
+    <Compile Include="Models\Repos\CustomerRepo.cs" />
     <Compile Include="Models\Repos\IRepo.cs" />
     <Compile Include="Models\Repos\LocationRepo.cs" />
+    <Compile Include="Models\Repos\OrderRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -293,6 +304,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906231817402_Initial2.resx">
       <DependentUpon>201906231817402_Initial2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906261700517_Initial3.resx">
+      <DependentUpon>201906261700517_Initial3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906261711145_Intal4.resx">
+      <DependentUpon>201906261711145_Intal4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

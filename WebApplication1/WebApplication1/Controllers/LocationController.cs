@@ -29,7 +29,7 @@ namespace WebApplication1.Controllers
         public async Task<ActionResult> Create(CreateLocationViewModel model)
         {
 
-            using (var context = new LocationEntities())
+            using (var context = new ProductContolEntities())
             {
                 context.Locations.Add(new Location
                 {
