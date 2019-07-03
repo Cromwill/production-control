@@ -79,6 +79,20 @@ namespace WebApplication1.Models
         [Display(Name = "Подтверждение пароля")]
         [Compare("Password", ErrorMessage = "Пароль и его подтверждение не совпадают.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "Фамилия")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "Имя")]
+        public string SecondName { get; set; }
+
+        [Required]
+        [Display(Name = "Доступ")]
+        public UserRoles UserRole { get; set; }
     }
 
     public class ResetPasswordViewModel

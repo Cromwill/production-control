@@ -13,7 +13,9 @@ namespace WebApplication1.Models
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
         public string Email { get; set; }
+        public string Role { get; set; }
         public List<Location> Locations { get; set; }
+        public List<ApplicationUser> ApplicationUsers { get;set; }
     }
 
     public class ManageLoginsViewModel
@@ -84,5 +86,22 @@ namespace WebApplication1.Models
     {
         public string SelectedProvider { get; set; }
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
+    }
+
+    public class LocationViewModel
+    {
+        public string LocationFirstName { get; set; }
+        public string LocationSecondName { get; set; }
+        public string LocationCustomer { get; set; }
+    }
+
+    public class UserViewModel
+    {
+        [Required]
+        [Display(Name = "Фамилия")]
+        public List<string> UserFirstNames { get; set; }
+        [Required]
+        [Display(Name = "Имя")]
+        public List<string> UserSecondNames { get; set; }
     }
 }

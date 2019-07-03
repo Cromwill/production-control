@@ -66,13 +66,8 @@ namespace WebApplication1.Controllers
 
             var userId = User.Identity.GetUserId();
             List<Location> location = new List<Location>();
-            //using (var context = new ApplicationDbContext())
-            //{
-            //    foreach(var v in context.Locations)
-            //    {
-            //        location.Add(v);
-            //    }
-            //}
+
+
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
@@ -81,11 +76,49 @@ namespace WebApplication1.Controllers
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
                 Email = await UserManager.GetEmailAsync(userId),
-                Locations = location
+                Locations = location,
+                Role = (await UserManager.GetRolesAsync(userId)).First()
                 };
+
+            if (model.Role == "Admin")
+            {
+                using (var context = new ApplicationDbContext())
+                {
+                    foreach (var v in context.Users.Where(d => d.CreatorId == userId).ToList())
+                    {
+                        model.ApplicationUsers.Add(v);
+                    }
+                }
+            }
+
             return View(model);
         }
 
+
+        public async Task<ActionResult> Location()
+        {
+
+            return View();
+        }
+
+
+        public ActionResult Users()
+        {
+            var userId = User.Identity.GetUserId();
+            var model = new UserViewModel();
+
+            using (var context = new ApplicationDbContext())
+            {
+
+                foreach (var v in context.Users.Where(d => d.CreatorId == userId).ToList())
+                {
+                    model.UserFirstNames.Add(v.FirstName);
+                    model.UserSecondNames.Add(v.SecondName);
+                }
+            }
+
+            return View(model);
+        }
         //
         // POST: /Manage/RemoveLogin
         [HttpPost]

@@ -169,9 +169,10 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Location\LocationAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LocationController.cs" />
+    <Compile Include="Areas\Location\Controllers\LocationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -180,45 +181,45 @@
     <Compile Include="Migrations\201906171628462_InitialCreate.Designer.cs">
       <DependentUpon>201906171628462_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201906231550007_Initial.cs" />
-    <Compile Include="Migrations\201906231550007_Initial.Designer.cs">
-      <DependentUpon>201906231550007_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201906301234153_UserList.cs" />
+    <Compile Include="Migrations\201906301234153_UserList.Designer.cs">
+      <DependentUpon>201906301234153_UserList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201906231701278_Initial1.cs" />
-    <Compile Include="Migrations\201906231701278_Initial1.Designer.cs">
-      <DependentUpon>201906231701278_Initial1.cs</DependentUpon>
+    <Compile Include="Migrations\201906301254463_UserToUser1.cs" />
+    <Compile Include="Migrations\201906301254463_UserToUser1.Designer.cs">
+      <DependentUpon>201906301254463_UserToUser1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201906231817402_Initial2.cs" />
-    <Compile Include="Migrations\201906231817402_Initial2.Designer.cs">
-      <DependentUpon>201906231817402_Initial2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906261700517_Initial3.cs" />
-    <Compile Include="Migrations\201906261700517_Initial3.Designer.cs">
-      <DependentUpon>201906261700517_Initial3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906261711145_Intal4.cs" />
-    <Compile Include="Migrations\201906261711145_Intal4.Designer.cs">
-      <DependentUpon>201906261711145_Intal4.cs</DependentUpon>
+    <Compile Include="Migrations\201907011804305_CreatorId.cs" />
+    <Compile Include="Migrations\201907011804305_CreatorId.Designer.cs">
+      <DependentUpon>201907011804305_CreatorId.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\EF\AppDbInitializer.cs" />
-    <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\EF\DataInitializer.cs" />
+    <Compile Include="Areas\Location\Models\Customer.cs" />
+    <Compile Include="Areas\Location\Models\EF\DataInitializer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Location.cs" />
+    <Compile Include="Areas\Location\Models\Location.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\EF\ProductContolEntities.cs" />
-    <Compile Include="Models\Repos\BaseRepo.cs" />
-    <Compile Include="Models\Repos\CustomerRepo.cs" />
-    <Compile Include="Models\Repos\IRepo.cs" />
-    <Compile Include="Models\Repos\LocationRepo.cs" />
-    <Compile Include="Models\Repos\OrderRepo.cs" />
+    <Compile Include="Areas\Location\Models\Order.cs" />
+    <Compile Include="Areas\Location\Models\EF\ProductContolEntities.cs" />
+    <Compile Include="Areas\Location\Models\Repos\BaseRepo.cs" />
+    <Compile Include="Areas\Location\Models\Repos\CustomerRepo.cs" />
+    <Compile Include="Areas\Location\Models\Repos\IRepo.cs" />
+    <Compile Include="Areas\Location\Models\Repos\LocationRepo.cs" />
+    <Compile Include="Areas\Location\Models\Repos\OrderRepo.cs" />
+    <Compile Include="Models\UserToUsers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\AppData.mdf" />
+    <Content Include="App_Data\AppData_log.ldf">
+      <DependentUpon>AppData.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\Authentication.mdf" />
+    <Content Include="App_Data\Authentication_log.ldf">
+      <DependentUpon>Authentication.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -229,6 +230,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Location\Views\web.config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -273,11 +275,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Location\Create.cshtml" />
+    <Content Include="Areas\Location\Views\Location\Create.cshtml" />
+    <Content Include="Views\Manage\Location.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="EF\" />
+    <Folder Include="Areas\Location\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -296,20 +298,14 @@
     <EmbeddedResource Include="Migrations\201906171628462_InitialCreate.resx">
       <DependentUpon>201906171628462_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906231550007_Initial.resx">
-      <DependentUpon>201906231550007_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201906301234153_UserList.resx">
+      <DependentUpon>201906301234153_UserList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906231701278_Initial1.resx">
-      <DependentUpon>201906231701278_Initial1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201906301254463_UserToUser1.resx">
+      <DependentUpon>201906301254463_UserToUser1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906231817402_Initial2.resx">
-      <DependentUpon>201906231817402_Initial2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906261700517_Initial3.resx">
-      <DependentUpon>201906261700517_Initial3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906261711145_Intal4.resx">
-      <DependentUpon>201906261711145_Intal4.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907011804305_CreatorId.resx">
+      <DependentUpon>201907011804305_CreatorId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
