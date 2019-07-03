@@ -29,8 +29,6 @@ namespace WebApplication1.Models
         {
         }
 
-        public DbSet<UserToUsers> UserList { get; set; }
-
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

@@ -8,6 +8,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using WebApplication1.Models;
 using System.Collections.Generic;
+using WebApplication1.Models.Repos;
 
 namespace WebApplication1.Controllers
 {
@@ -67,6 +68,7 @@ namespace WebApplication1.Controllers
             var userId = User.Identity.GetUserId();
             List<Location> location = new List<Location>();
 
+            location = (await GetLocations(userId)).ToList();
 
             var model = new IndexViewModel
             {
@@ -79,6 +81,8 @@ namespace WebApplication1.Controllers
                 Locations = location,
                 Role = (await UserManager.GetRolesAsync(userId)).First()
                 };
+
+            model.ApplicationUsers = new List<ApplicationUser>();
 
             if (model.Role == "Admin")
             {
@@ -95,30 +99,14 @@ namespace WebApplication1.Controllers
         }
 
 
-        public async Task<ActionResult> Location()
+        private async Task<IEnumerable<Location>> GetLocations(string userId)
         {
+            var loc = new LocationRepo();
+            var list = await loc.GetLocationsForUserAsync(userId);
 
-            return View();
+            return list;
         }
 
-
-        public ActionResult Users()
-        {
-            var userId = User.Identity.GetUserId();
-            var model = new UserViewModel();
-
-            using (var context = new ApplicationDbContext())
-            {
-
-                foreach (var v in context.Users.Where(d => d.CreatorId == userId).ToList())
-                {
-                    model.UserFirstNames.Add(v.FirstName);
-                    model.UserSecondNames.Add(v.SecondName);
-                }
-            }
-
-            return View(model);
-        }
         //
         // POST: /Manage/RemoveLogin
         [HttpPost]

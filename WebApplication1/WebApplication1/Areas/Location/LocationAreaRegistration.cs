@@ -14,10 +14,11 @@ namespace WebApplication1.Areas.Location
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
+
             context.MapRoute(
-                "Location_default",
-                "Location/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                name: "Location_default",
+                url: "Location/{controller}/{action}/{id}",
+                defaults: new {controller = "Location", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

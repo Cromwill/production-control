@@ -19,6 +19,8 @@ namespace WebApplication1.Models.Repos
         public List<T> GetAll() => Table.ToList();
         public Task<List<T>> GetAllAsync() => Table.ToListAsync();
 
+
+
         public int Add(T enity)
         {
             Table.Add(enity);

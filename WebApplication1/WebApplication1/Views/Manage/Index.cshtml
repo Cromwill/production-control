@@ -46,7 +46,7 @@
         <div id="panel2" class="tab-pane fade">
             <div>
                 <h4>Locations list</h4>
-                @using (Html.BeginForm("CreateLocation", "Location", FormMethod.Get, new { @class = "form-horizontal", role = "form" }))
+                @using (Html.BeginForm("CreateLocation", "Location", new { area = "" }, FormMethod.Get, new { @class = "form-horizontal", role = "form" }))
                 {
                     <div class="form-group">
                         <div class="col-md-2">

@@ -16,6 +16,19 @@ namespace WebApplication1.Models.Repos
             Table = Context.Locations;
         }
 
+        ///<summary> Возвращает все T принадлежащие данному userId</summary>
+        public IEnumerable<Location> GetLocationsForUser(string userId)
+        {
+            var loc = GetAll().Where(d => d.UsersId.Contains(userId));
+            return loc;
+        }
+
+        public async Task<IEnumerable<Location>> GetLocationsForUserAsync(string userId)
+        {
+            var loc = await GetAllAsync();
+            return loc.Where(d => d.UsersId.Contains(userId));
+        }
+
         public int Delete(int id, byte[] timeStamp)
         {
             Context.Entry(new Location(){ LocationId = id}).State = EntityState.Deleted;

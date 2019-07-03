@@ -193,6 +193,14 @@
     <Compile Include="Migrations\201907011804305_CreatorId.Designer.cs">
       <DependentUpon>201907011804305_CreatorId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907031547442_CreatUsers.cs" />
+    <Compile Include="Migrations\201907031547442_CreatUsers.Designer.cs">
+      <DependentUpon>201907031547442_CreatUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907031611233_Location.cs" />
+    <Compile Include="Migrations\201907031611233_Location.Designer.cs">
+      <DependentUpon>201907031611233_Location.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Areas\Location\Models\Customer.cs" />
@@ -207,7 +215,6 @@
     <Compile Include="Areas\Location\Models\Repos\IRepo.cs" />
     <Compile Include="Areas\Location\Models\Repos\LocationRepo.cs" />
     <Compile Include="Areas\Location\Models\Repos\OrderRepo.cs" />
-    <Compile Include="Models\UserToUsers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -231,6 +238,9 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Location\Views\web.config" />
+    <Content Include="Areas\Location\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Location\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Location\Views\Location\CreateLocation.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -278,9 +288,7 @@
     <Content Include="Areas\Location\Views\Location\Create.cshtml" />
     <Content Include="Views\Manage\Location.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Areas\Location\Views\Shared\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -306,6 +314,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907011804305_CreatorId.resx">
       <DependentUpon>201907011804305_CreatorId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907031547442_CreatUsers.resx">
+      <DependentUpon>201907031547442_CreatUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907031611233_Location.resx">
+      <DependentUpon>201907031611233_Location.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
