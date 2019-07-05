@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Threading.Tasks;
 
-namespace WebApplication1.Models
+namespace WebApplication1.Areas.Location.Models
 {
     [Table("Location")]
     public partial class Location
@@ -23,6 +23,8 @@ namespace WebApplication1.Models
         public string SecondTitle { get; set; }
         [StringLength(60)]
         public string Customer { get; set; }
+        //[StringLength(60)]
+        //public string CreatorId { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<string> UsersId { get; set; } = new HashSet<string>();
         [NotMapped]

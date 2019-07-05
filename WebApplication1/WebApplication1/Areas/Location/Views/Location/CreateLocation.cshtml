@@ -1,11 +1,11 @@
-﻿@model WebApplication1.Models.CreateLocationViewModel
+﻿@model WebApplication1.Areas.Location.Models.CreateLocationViewModel
 @{
     ViewBag.Title = "Создание объекта";
 }
 
 <h2>@ViewBag.Title.</h2>
 
-@using (Html.BeginForm("Create", "Location", new { area = "Location" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("CreateLocation", "Location", new { area = "Location" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
     <h4>Создать новый объект.</h4>

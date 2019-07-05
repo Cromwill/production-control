@@ -234,13 +234,9 @@ E:\production-control\WebApplication1\WebApplication1\obj\Debug\WebApplication1.
 E:\production-control\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
 E:\production-control\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.InitialCreate.resources
 E:\production-control\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.GenerateResource.cache
-F:\Sushchenya\Stratigy\production-control\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.InitialCreate.resources
-F:\Sushchenya\Stratigy\production-control\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.GenerateResource.cache
 E:\production-control\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.UserList.resources
 E:\production-control\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.UserToUser1.resources
 E:\production-control\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.CreatorId.resources
-F:\Sushchenya\Stratigy\production-control\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.UserList.resources
-F:\Sushchenya\Stratigy\production-control\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.UserToUser1.resources
-F:\Sushchenya\Stratigy\production-control\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.CreatorId.resources
-F:\Sushchenya\Stratigy\production-control\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.CreatUsers.resources
-F:\Sushchenya\Stratigy\production-control\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.Location.resources
+F:\Sushchenya\Stratigy\production-control\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.FirstMigrationForApplicationDBContext.resources
+F:\Sushchenya\Stratigy\production-control\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.GenerateResource.cache
+F:\Sushchenya\Stratigy\production-control\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.ProductContolEntities.InitialDatabaseCreation.resources

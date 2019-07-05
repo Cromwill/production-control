@@ -13,6 +13,7 @@ namespace WebApplication1.Models
         public string CreatorId { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Обратите внимание, что authenticationType должен совпадать с типом, определенным в CookieAuthenticationOptions.AuthenticationType
@@ -25,7 +26,7 @@ namespace WebApplication1.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("Authentication", throwIfV1Schema: false)
+            : base("AppData", throwIfV1Schema: false)
         {
         }
 

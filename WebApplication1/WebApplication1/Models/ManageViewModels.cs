@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
+using WebApplication1.Areas.Location.Models;
 
 namespace WebApplication1.Models
 {

@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 using System.Web;
 using System.Data.Entity;
-using WebApplication1.Models;
+using WebApplication1.Areas.Location.Models.Repos;
 
-namespace WebApplication1.Models.Repos
+namespace WebApplication1.Areas.Location.Models.Repos
 {
     public class CustomerRepo: BaseRepo<Customer>, IRepo<Customer>
     {

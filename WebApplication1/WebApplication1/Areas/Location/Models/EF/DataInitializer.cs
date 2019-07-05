@@ -5,7 +5,7 @@ using System.Web;
 using System.Data.Entity;
 using WebApplication1.Models;
 
-namespace WebApplication1.Models.EF
+namespace WebApplication1.Areas.Location.Models.EF
 {
     public class DataInitializer : DropCreateDatabaseAlways<ProductContolEntities>
     {

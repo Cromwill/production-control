@@ -169,6 +169,8 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Location\Controllers\LocationDataController.cs" />
+    <Compile Include="Areas\Location\Controllers\TestController.cs" />
     <Compile Include="Areas\Location\LocationAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -177,31 +179,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201906171628462_InitialCreate.cs" />
-    <Compile Include="Migrations\201906171628462_InitialCreate.Designer.cs">
-      <DependentUpon>201906171628462_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906301234153_UserList.cs" />
-    <Compile Include="Migrations\201906301234153_UserList.Designer.cs">
-      <DependentUpon>201906301234153_UserList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906301254463_UserToUser1.cs" />
-    <Compile Include="Migrations\201906301254463_UserToUser1.Designer.cs">
-      <DependentUpon>201906301254463_UserToUser1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907011804305_CreatorId.cs" />
-    <Compile Include="Migrations\201907011804305_CreatorId.Designer.cs">
-      <DependentUpon>201907011804305_CreatorId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907031547442_CreatUsers.cs" />
-    <Compile Include="Migrations\201907031547442_CreatUsers.Designer.cs">
-      <DependentUpon>201907031547442_CreatUsers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907031611233_Location.cs" />
-    <Compile Include="Migrations\201907031611233_Location.Designer.cs">
-      <DependentUpon>201907031611233_Location.cs</DependentUpon>
+    <Compile Include="Migrations\201907051743344_FirstMigrationForApplicationDBContext.cs" />
+    <Compile Include="Migrations\201907051743344_FirstMigrationForApplicationDBContext.Designer.cs">
+      <DependentUpon>201907051743344_FirstMigrationForApplicationDBContext.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\ProductContolEntities\201907051804486_InitialDatabaseCreation.cs" />
+    <Compile Include="Migrations\ProductContolEntities\201907051804486_InitialDatabaseCreation.Designer.cs">
+      <DependentUpon>201907051804486_InitialDatabaseCreation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ProductContolEntities\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Areas\Location\Models\Customer.cs" />
     <Compile Include="Areas\Location\Models\EF\DataInitializer.cs" />
@@ -223,10 +210,6 @@
     <Content Include="App_Data\AppData_log.ldf">
       <DependentUpon>AppData.mdf</DependentUpon>
     </Content>
-    <Content Include="App_Data\Authentication.mdf" />
-    <Content Include="App_Data\Authentication_log.ldf">
-      <DependentUpon>Authentication.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -241,6 +224,8 @@
     <Content Include="Areas\Location\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Location\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Location\Views\Location\CreateLocation.cshtml" />
+    <Content Include="Areas\Location\Views\Test\Index.cshtml" />
+    <Content Include="Areas\Location\Views\Location\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -288,7 +273,9 @@
     <Content Include="Areas\Location\Views\Location\Create.cshtml" />
     <Content Include="Views\Manage\Location.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Areas\Location\Views\LocationData\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -303,23 +290,11 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201906171628462_InitialCreate.resx">
-      <DependentUpon>201906171628462_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907051743344_FirstMigrationForApplicationDBContext.resx">
+      <DependentUpon>201907051743344_FirstMigrationForApplicationDBContext.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906301234153_UserList.resx">
-      <DependentUpon>201906301234153_UserList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906301254463_UserToUser1.resx">
-      <DependentUpon>201906301254463_UserToUser1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907011804305_CreatorId.resx">
-      <DependentUpon>201907011804305_CreatorId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907031547442_CreatUsers.resx">
-      <DependentUpon>201907031547442_CreatUsers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907031611233_Location.resx">
-      <DependentUpon>201907031611233_Location.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\ProductContolEntities\201907051804486_InitialDatabaseCreation.resx">
+      <DependentUpon>201907051804486_InitialDatabaseCreation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

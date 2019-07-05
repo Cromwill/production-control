@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace WebApplication1.Models.Repos
+namespace WebApplication1.Areas.Location.Models.Repos
 {
     public interface IRepo<T>
     {

@@ -1,15 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using WebApplication1.Models;
+using WebApplication1.Areas.Location.Models;
 
-namespace WebApplication1.Controllers
+namespace WebApplication1.Areas.Location.Controllers
 {
     public class LocationController : Controller
     {
+        private ApplicationUserManager _userManager;
+
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
+
         // GET: Location
         public ActionResult Index()
         {
@@ -29,33 +42,21 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> CreateLocation(CreateLocationViewModel model)
         {
+            var userId = User.Identity.GetUserId();
 
             using (var context = new ProductContolEntities())
             {
-                context.Locations.Add(new Location
+                context.Locations.Add(new Models.Location
                 {
                     Title = model.Title,
                     SecondTitle = model.SecondTitle,
-                    Customer = model.Customer
+                    Customer = model.Customer,
+                    //CreatorId = userId
                 });
 
                 await context.SaveChangesAsync();
             }
-            return RedirectToAction("Index", "Home");
-        }
-
-        public ActionResult CreateUser()
-        {
-           return View();
-        }
-
-        // POST: /Location/Create
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateUser(CreateLocationViewModel model)
-        {
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
     }
 }

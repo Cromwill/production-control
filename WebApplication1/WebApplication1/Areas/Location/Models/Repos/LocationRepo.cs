@@ -7,7 +7,7 @@ using System.Data.Entity;
 using WebApplication1.Models;
 
 
-namespace WebApplication1.Models.Repos
+namespace WebApplication1.Areas.Location.Models.Repos
 {
     public class LocationRepo : BaseRepo<Location>, IRepo<Location>
     {

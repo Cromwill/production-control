@@ -8,7 +8,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using WebApplication1.Models;
 using System.Collections.Generic;
-using WebApplication1.Models.Repos;
+using WebApplication1.Areas.Location.Models.Repos;
+using WebApplication1.Areas.Location.Models;
 
 namespace WebApplication1.Controllers
 {

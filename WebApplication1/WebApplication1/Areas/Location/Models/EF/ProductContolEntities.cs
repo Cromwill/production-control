@@ -1,4 +1,4 @@
-﻿namespace WebApplication1.Models
+﻿namespace WebApplication1.Areas.Location.Models
 {
     using System.Data.Entity;
 
@@ -13,6 +13,7 @@
         public ProductContolEntities()
             : base("name=AppData")
         {
+
         }
 
         public virtual DbSet<Location> Locations { get; set; }

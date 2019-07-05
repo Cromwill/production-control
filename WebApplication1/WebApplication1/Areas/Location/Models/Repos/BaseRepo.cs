@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using WebApplication1.Models;
 
-namespace WebApplication1.Models.Repos
+namespace WebApplication1.Areas.Location.Models.Repos
 {
     public abstract class BaseRepo<T> : IDisposable where T: class, new() 
     {
