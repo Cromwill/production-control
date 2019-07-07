@@ -14,7 +14,8 @@
         <li class="active"> <a data-toggle="tab" href="#panel1">Главная</a></li>
         <li><a data-toggle="tab" href="#panel2">Объекты</a></li>
         <li><a data-toggle="tab" href="#panel3">Сотрудники</a></li>
-        <li><a data-toggle="tab" href="#panel4">Тест</a></li>
+        <li><a data-toggle="tab" href="#panel4">Заказчики</a></li>
+        <li><a data-toggle="tab" href="#panel5">Объекты</a></li>
     </ul> 
     <div class="tab-content">
         <div id="panel1" class="tab-pane fade in active">
@@ -57,15 +58,19 @@
                 }
             </div>
             <div>
-                @for (int i = 0; i < Model.Locations.Count; i++)
+                @if (Model.Locations != null)
                 {
+                    for (int i = 0; i < Model.Locations.Count; i++)
+                    {
                     <h5> Объект @(i + 1)</h5>
                     <ul>
                         <li> @Model.Locations[i].Title</li>
                         <li>@Model.Locations[i].SecondTitle</li>
                         <li>@Model.Locations[i].Customer</li>
                     </ul>
+                    }
                 }
+
             </div>
         </div>
         <div id="panel3" class="tab-pane fade">
@@ -83,22 +88,25 @@
             <div>
                 @if (Model.Role == "Admin")
                 {
-                    for (int i = 0; i < Model.ApplicationUsers.Count; i++)
+                    if (Model.ApplicationUsers != null)
                     {
+                        for (int i = 0; i < Model.ApplicationUsers.Count; i++)
+                        {
                         <h5> Пользователь @(i + 1)</h5>
                         <ul>
                             <li>@Model.ApplicationUsers[i].FirstName</li>
                             <li>@Model.ApplicationUsers[i].SecondName</li>
                             <li>@Model.ApplicationUsers[i].Email</li>
                         </ul>
+                        }
                     }
                 }
             </div>
         </div>
         <div id="panel4" class="tab-pane fade">
             <div>
-                <h4>Test Link</h4>
-                @using (Html.BeginForm("Index", "Test", new { area = "Location" }, FormMethod.Get, new { @class = "form-horizontal", role = "form" }))
+                <h4>Customers</h4>
+                @using (Html.BeginForm("CreateCustomer", "Customer", new { area = "Location" }, FormMethod.Get, new { @class = "form-horizontal", role = "form" }))
                 {
                     <div class="form-group">
                         <div class="col-md-2">
@@ -106,6 +114,19 @@
                         </div>
                     </div>
                 }
+            </div>
+            <div>
+                    @if (Model.Customers != null)
+                    {
+                        for (int i = 0; i < Model.Customers.Count; i++)
+                        {
+                            <h5> Заказчик @(i + 1)</h5>
+                            <ul>
+                                <li>@Model.Customers[i].Name</li>
+                                <li>@Model.Customers[i].Address</li>
+                            </ul>
+                        }
+                    }
             </div>
         </div>
     </div>

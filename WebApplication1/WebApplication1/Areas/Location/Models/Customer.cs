@@ -18,4 +18,17 @@ namespace WebApplication1.Areas.Location.Models
 
         public virtual ICollection<Location> Locations { get; set; } = new HashSet<Location>();
     }
+
+    public class CreateCustomerViewModel
+    {
+        [Required]
+        [StringLength(100, ErrorMessage = "Значение {0} должно содержать не менее {2} символов.", MinimumLength = 6)]
+        [Display(Name = "Наименование заказчика")]
+        public string Name { get; set; }
+
+        [StringLength(100, ErrorMessage = "Значение {0} должно содержать не менее {2} символов.", MinimumLength = 6)]
+        [Display(Name = "Адресс")]
+        public string Address { get; set; }
+    }
+
 }

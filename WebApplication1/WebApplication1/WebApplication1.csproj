@@ -169,8 +169,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Areas\Location\Controllers\LocationDataController.cs" />
-    <Compile Include="Areas\Location\Controllers\TestController.cs" />
+    <Compile Include="Areas\Location\Controllers\CustomerController.cs" />
     <Compile Include="Areas\Location\LocationAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -179,16 +178,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907051743344_FirstMigrationForApplicationDBContext.cs" />
-    <Compile Include="Migrations\201907051743344_FirstMigrationForApplicationDBContext.Designer.cs">
-      <DependentUpon>201907051743344_FirstMigrationForApplicationDBContext.cs</DependentUpon>
+    <Compile Include="Migrations\ApplicationDbContext\201907071622441_InitialDatabaseCreation.cs" />
+    <Compile Include="Migrations\ApplicationDbContext\201907071622441_InitialDatabaseCreation.Designer.cs">
+      <DependentUpon>201907071622441_InitialDatabaseCreation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\ProductContolEntities\201907051804486_InitialDatabaseCreation.cs" />
-    <Compile Include="Migrations\ProductContolEntities\201907051804486_InitialDatabaseCreation.Designer.cs">
-      <DependentUpon>201907051804486_InitialDatabaseCreation.cs</DependentUpon>
+    <Compile Include="Migrations\ApplicationDbContext\Configuration.cs" />
+    <Compile Include="Migrations\ProductControlEntities\201907071623184_InitialDatabaseCreation.cs" />
+    <Compile Include="Migrations\ProductControlEntities\201907071623184_InitialDatabaseCreation.Designer.cs">
+      <DependentUpon>201907071623184_InitialDatabaseCreation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\ProductContolEntities\Configuration.cs" />
+    <Compile Include="Migrations\ProductControlEntities\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Areas\Location\Models\Customer.cs" />
     <Compile Include="Areas\Location\Models\EF\DataInitializer.cs" />
@@ -226,6 +225,7 @@
     <Content Include="Areas\Location\Views\Location\CreateLocation.cshtml" />
     <Content Include="Areas\Location\Views\Test\Index.cshtml" />
     <Content Include="Areas\Location\Views\Location\Index.cshtml" />
+    <Content Include="Areas\Location\Views\Customer\CreateCustomer.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -290,11 +290,11 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201907051743344_FirstMigrationForApplicationDBContext.resx">
-      <DependentUpon>201907051743344_FirstMigrationForApplicationDBContext.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\ApplicationDbContext\201907071622441_InitialDatabaseCreation.resx">
+      <DependentUpon>201907071622441_InitialDatabaseCreation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\ProductContolEntities\201907051804486_InitialDatabaseCreation.resx">
-      <DependentUpon>201907051804486_InitialDatabaseCreation.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\ProductControlEntities\201907071623184_InitialDatabaseCreation.resx">
+      <DependentUpon>201907071623184_InitialDatabaseCreation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

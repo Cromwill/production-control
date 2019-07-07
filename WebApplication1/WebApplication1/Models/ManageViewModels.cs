@@ -16,6 +16,7 @@ namespace WebApplication1.Models
         public string Email { get; set; }
         public string Role { get; set; }
         public List<Location> Locations { get; set; }
+        public List<Customer> Customers { get; set; }
         public List<ApplicationUser> ApplicationUsers { get;set; }
     }
 

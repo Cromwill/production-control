@@ -71,7 +71,7 @@ namespace WebApplication1.Controllers
 
             location = (await GetLocations(userId)).ToList();
 
-            var model = new IndexViewModel
+            IndexViewModel model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
                 PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
@@ -84,6 +84,7 @@ namespace WebApplication1.Controllers
                 };
 
             model.ApplicationUsers = new List<ApplicationUser>();
+            model.Customers = new List<Customer>();
 
             if (model.Role == "Admin")
             {
@@ -92,6 +93,14 @@ namespace WebApplication1.Controllers
                     foreach (var v in context.Users.Where(d => d.CreatorId == userId).ToList())
                     {
                         model.ApplicationUsers.Add(v);
+                    }
+                }
+
+                using (var context = new ProductContolEntities())
+                {
+                    foreach(var v in context.Customers)
+                    {
+                        model.Customers.Add(v);
                     }
                 }
             }

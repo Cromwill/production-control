@@ -23,9 +23,7 @@ namespace WebApplication1.Areas.Location.Models
         public string SecondTitle { get; set; }
         [StringLength(60)]
         public string Customer { get; set; }
-        //[StringLength(60)]
-        //public string CreatorId { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
         public virtual ICollection<string> UsersId { get; set; } = new HashSet<string>();
         [NotMapped]
         public string TitleName => $"{Title} + {SecondTitle}";

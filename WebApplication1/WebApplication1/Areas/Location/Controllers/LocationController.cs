@@ -43,16 +43,18 @@ namespace WebApplication1.Areas.Location.Controllers
         public async Task<ActionResult> CreateLocation(CreateLocationViewModel model)
         {
             var userId = User.Identity.GetUserId();
+            var location = new Models.Location
+            {
+                Title = model.Title,
+                SecondTitle = model.SecondTitle,
+                Customer = model.Customer,
+            };
+
+            location.UsersId.Add(userId);
 
             using (var context = new ProductContolEntities())
             {
-                context.Locations.Add(new Models.Location
-                {
-                    Title = model.Title,
-                    SecondTitle = model.SecondTitle,
-                    Customer = model.Customer,
-                    //CreatorId = userId
-                });
+                context.Locations.Add(location);
 
                 await context.SaveChangesAsync();
             }
