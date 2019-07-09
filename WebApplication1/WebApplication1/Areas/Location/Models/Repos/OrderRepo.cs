@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using System.Web;
 using System.Data.Entity;
-using WebApplication1.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace WebApplication1.Areas.Location.Models.Repos
 {
@@ -10,6 +10,20 @@ namespace WebApplication1.Areas.Location.Models.Repos
         public OrderRepo()
         {
             Table = Context.Orders;
+        }
+
+        ///<summary> Возвращает все T принадлежащие данному userId</summary>
+        public IEnumerable<Order> GetOrdersForUser(string userId)
+        {
+            var orders = GetAll().Where(d => d.UserId.Contains(userId));
+            return orders;
+        }
+
+        ///<summary> Возвращает все T принадлежащие данному userId в асинхронном режиме</summary>
+        public async Task<IEnumerable<Order>> GetOrdersForUserAsync(string userId)
+        {
+            var loc = await GetAllAsync();
+            return loc.Where(d => d.UserId.Contains(userId));
         }
 
         public int Delete(int id, byte[] timeStamp)

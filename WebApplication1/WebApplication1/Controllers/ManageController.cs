@@ -98,6 +98,7 @@ namespace WebApplication1.Controllers
 
                 using (var context = new ProductContolEntities())
                 {
+                    
                     foreach(var v in context.Customers)
                     {
                         model.Customers.Add(v);
@@ -111,10 +112,16 @@ namespace WebApplication1.Controllers
 
         private async Task<IEnumerable<Location>> GetLocations(string userId)
         {
+            var orders = new OrderRepo();
+            var orderList = await orders.GetOrdersForUserAsync(userId);
             var loc = new LocationRepo();
-            var list = await loc.GetLocationsForUserAsync(userId);
+            var locationList = new List<Location>();
+            foreach (var v in orderList)
+            {
+                locationList.Add(loc.GetOne(v.LocationId));
+            }
 
-            return list;
+            return locationList;
         }
 
         //

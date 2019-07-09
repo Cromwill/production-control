@@ -9,7 +9,6 @@ namespace WebApplication1.Areas.Location.Models
     [Table("Location")]
     public partial class Location
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Location()
         {
             UsersId = new HashSet<string>();

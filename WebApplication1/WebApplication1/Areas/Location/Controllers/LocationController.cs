@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using System;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Areas.Location.Models;
+using WebApplication1.Areas.Location.Models.Repos;
 
 namespace WebApplication1.Areas.Location.Controllers
 {
@@ -49,15 +51,19 @@ namespace WebApplication1.Areas.Location.Controllers
                 SecondTitle = model.SecondTitle,
                 Customer = model.Customer,
             };
-
+            var order = new Order
+            {
+                CustId = Convert.ToInt32(model.Customer),
+                LocationId = location.LocationId,
+                UserId = userId
+            };
             location.UsersId.Add(userId);
 
-            using (var context = new ProductContolEntities())
-            {
-                context.Locations.Add(location);
+            var locationRepository = new LocationRepo();
+            await locationRepository.AddAsync(location);
+            var orderRepository = new OrderRepo();
+            await orderRepository.AddAsync(order);
 
-                await context.SaveChangesAsync();
-            }
             return RedirectToAction("Index", "Home", new { area = "" });
         }
     }
