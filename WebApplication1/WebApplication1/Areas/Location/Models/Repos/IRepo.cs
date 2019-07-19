@@ -15,8 +15,8 @@ namespace WebApplication1.Areas.Location.Models.Repos
         Task<int> DeleteAsync(int id, byte[] timeStamp);
         int Delete(T entity);
         Task<int> DeleteAsync(T entity);
-        T GetOne(int? id);
-        Task<T> GetOneAsync(int? id);
+        T GetOne(int id);
+        Task<T> GetOneAsync(int id);
         List<T> GetAll();
         Task<List<T>> GetAllAsync();
 

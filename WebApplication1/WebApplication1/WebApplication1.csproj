@@ -191,6 +191,10 @@
     <Compile Include="Migrations\ProductControlEntities\201907081626401_InitialDatabaseCreation1.Designer.cs">
       <DependentUpon>201907081626401_InitialDatabaseCreation1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\ProductControlEntities\201907191627098_InitialDatabaseCreation3.cs" />
+    <Compile Include="Migrations\ProductControlEntities\201907191627098_InitialDatabaseCreation3.Designer.cs">
+      <DependentUpon>201907191627098_InitialDatabaseCreation3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ProductControlEntities\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Areas\Location\Models\Customer.cs" />
@@ -302,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\ProductControlEntities\201907081626401_InitialDatabaseCreation1.resx">
       <DependentUpon>201907081626401_InitialDatabaseCreation1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\ProductControlEntities\201907191627098_InitialDatabaseCreation3.resx">
+      <DependentUpon>201907191627098_InitialDatabaseCreation3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

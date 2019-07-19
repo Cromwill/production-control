@@ -42,6 +42,8 @@ namespace WebApplication1.Areas.Location.Models
         [Required]
         [Display(Name = "Заказчик")]
         public string Customer { get; set; }
+
+        public List<string> Customers { get; set; }
     }
 
     public partial class Location

@@ -14,8 +14,8 @@ namespace WebApplication1.Areas.Location.Models.Repos
         public ProductContolEntities Context { get; } = new ProductContolEntities();
         protected DbSet<T> Table;
 
-        public T GetOne(int? id) => Table.Find(id);
-        public Task<T> GetOneAsync(int? id) => Table.FindAsync(id);
+        public T GetOne(int id) => Table.Find(id);
+        public Task<T> GetOneAsync(int id) => Table.FindAsync(id);
         public List<T> GetAll() => Table.ToList();
         public Task<List<T>> GetAllAsync() => Table.ToListAsync();
 

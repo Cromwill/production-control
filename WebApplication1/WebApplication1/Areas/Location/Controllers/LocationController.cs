@@ -4,8 +4,10 @@ using System;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Linq;
 using WebApplication1.Areas.Location.Models;
 using WebApplication1.Areas.Location.Models.Repos;
+using System.Collections.Generic;
 
 namespace WebApplication1.Areas.Location.Controllers
 {
@@ -33,8 +35,19 @@ namespace WebApplication1.Areas.Location.Controllers
 
         // GET: 
         [HttpGet]
-        public ActionResult CreateLocation()
+        public async Task<ActionResult> CreateLocation()
         {
+            var model = new CreateLocationViewModel();
+            var customerRepository = new CustomerRepo();
+            var customers = new List<string>();
+            foreach (var v in await customerRepository.GetAllAsync())
+            {
+                customers.Add(v.Name);
+            }
+
+            SelectList selectListCustomers = new SelectList(customers);
+            ViewBag.Customers = selectListCustomers;
+
             return View();
         }
 
@@ -44,6 +57,10 @@ namespace WebApplication1.Areas.Location.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> CreateLocation(CreateLocationViewModel model)
         {
+            var locationRepository = new LocationRepo();
+            var orderRepository = new OrderRepo();
+            var customerRepository = new CustomerRepo();
+
             var userId = User.Identity.GetUserId();
             var location = new Models.Location
             {
@@ -51,17 +68,19 @@ namespace WebApplication1.Areas.Location.Controllers
                 SecondTitle = model.SecondTitle,
                 Customer = model.Customer,
             };
+
             var order = new Order
             {
-                CustId = Convert.ToInt32(model.Customer),
                 LocationId = location.LocationId,
                 UserId = userId
             };
-            location.UsersId.Add(userId);
 
-            var locationRepository = new LocationRepo();
+            location.UsersId.Add(userId);
+            var testCustIds = await customerRepository.GetAllAsync();
+            order.CustId = testCustIds.First(d => d.Name == model.)
+
             await locationRepository.AddAsync(location);
-            var orderRepository = new OrderRepo();
+
             await orderRepository.AddAsync(order);
 
             return RedirectToAction("Index", "Home", new { area = "" });
