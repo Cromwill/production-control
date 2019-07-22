@@ -77,7 +77,6 @@ namespace WebApplication1.Areas.Location.Controllers
 
             location.UsersId.Add(userId);
             var testCustIds = await customerRepository.GetAllAsync();
-            order.CustId = testCustIds.First(d => d.Name == model.)
 
             await locationRepository.AddAsync(location);
 

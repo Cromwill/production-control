@@ -240,3 +240,5 @@ F:\Sushchenya\Stratigy\production-control\WebApplication1\WebApplication1\obj\De
 F:\Sushchenya\Stratigy\production-control\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.ProductControlEntities.InitialDatabaseCreation.resources
 F:\Sushchenya\Stratigy\production-control\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.ProductControlEntities.InitialDatabaseCreation1.resources
 F:\Sushchenya\Stratigy\production-control\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.ProductControlEntities.InitialDatabaseCreation3.resources
+E:\production-control\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.ProductControlEntities.InitialDatabaseCreation1.resources
+E:\production-control\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.ProductControlEntities.InitialDatabaseCreation3.resources
